@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
     let titleLabel = UILabel()
-    let messageLabel = UILabel()
+    let subLabel = UILabel()
     
     // username and password input vars
     var username: String? {
@@ -44,6 +44,22 @@ extension LoginViewController {
      */
     
     private func style() {
+        
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textAlignment = .center
+        titleLabel.textColor = .systemMint
+        titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
+        titleLabel.numberOfLines = 0
+        titleLabel.text = "Bankey"
+        
+        subLabel.translatesAutoresizingMaskIntoConstraints = false
+        subLabel.textAlignment = .center
+        subLabel.textColor = .systemMint
+        subLabel.font = .preferredFont(forTextStyle: .title3)
+        subLabel.adjustsFontForContentSizeCategory = true
+        subLabel.numberOfLines = 0
+        subLabel.text = "Your premium Bank!"
+        
         loginView.translatesAutoresizingMaskIntoConstraints = false
         
         signInButton.translatesAutoresizingMaskIntoConstraints = false
@@ -59,32 +75,33 @@ extension LoginViewController {
         errorMessageLabel.numberOfLines = 0
         errorMessageLabel.isHidden = true
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.textAlignment = .center
-        titleLabel.textColor = .systemMint
-        titleLabel.font = .systemFont(ofSize: 40)
-        titleLabel.numberOfLines = 0
-        titleLabel.text = "Bankey"
         
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        messageLabel.textAlignment = .center
-        messageLabel.textColor = .systemMint
-        messageLabel.numberOfLines = 0
-        messageLabel.text = "Your premium Bank!"
         
         
     }
     
     private func layout() {
         view.addSubview(titleLabel)
-        view.addSubview(messageLabel)
+        view.addSubview(subLabel)
         view.addSubview(loginView)
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
         
         // sets isActive to true for all contsraints contained within
+        
+        
+        
+        
         // LoginView
         NSLayoutConstraint.activate([
+            subLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            
+            loginView.topAnchor.constraint(equalToSystemSpacingBelow: subLabel.bottomAnchor, multiplier: 3),
+            subLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
+            subLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
+            
             /*
                 going to appear middle of page by anchoring with centerYAnchor
                 how to pin left and right or leading and trailing sides
@@ -92,24 +109,20 @@ extension LoginViewController {
                 going to flip the order of the words, since its the trailingAnchor
                 the views trailing will come after the loginviews trailingAnchor
             */
-//            messageLabel.bottomAnchor.constraint(equalToSystemSpacingBelow: loginView.topAnchor, multiplier: 2),
-//            messageLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
-//            messageLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
-//
-            
             loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1)
             
         ])
         
+        // sign in button and message label
         NSLayoutConstraint.activate([
-            // button
+            
             signInButton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 2),
             signInButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             signInButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
             
-            //error
+            
             errorMessageLabel.topAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 2),
             errorMessageLabel.leadingAnchor.constraint(equalTo: signInButton.leadingAnchor),
             errorMessageLabel.trailingAnchor.constraint(equalTo: signInButton.trailingAnchor)
