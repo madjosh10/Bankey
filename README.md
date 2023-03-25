@@ -8,7 +8,7 @@
 [] Contact Screen
 
 
-#### Login Screen
+### Login Screen
 - [x] No story boards
     * Build Programmatically
     * Code Snippets
@@ -31,4 +31,5 @@
     - git commit
     - git push
     - git clone
-![Login](/Users/josh/Desktop/Login.png)
+
+![Login](Login.png)
