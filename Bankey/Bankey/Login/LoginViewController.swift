@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
     let titleLabel = UILabel()
-    let subLabel = UILabel()
+    let subTitleLabel = UILabel()
     
     // username and password input vars
     var username: String? {
@@ -52,13 +52,13 @@ extension LoginViewController {
         titleLabel.numberOfLines = 0
         titleLabel.text = "Bankey"
         
-        subLabel.translatesAutoresizingMaskIntoConstraints = false
-        subLabel.textAlignment = .center
-        subLabel.textColor = .systemMint
-        subLabel.font = .preferredFont(forTextStyle: .title3)
-        subLabel.adjustsFontForContentSizeCategory = true
-        subLabel.numberOfLines = 0
-        subLabel.text = "Your premium Bank!"
+        subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        subTitleLabel.textAlignment = .center
+        subTitleLabel.textColor = .systemMint
+        subTitleLabel.font = .preferredFont(forTextStyle: .title3)
+        subTitleLabel.adjustsFontForContentSizeCategory = true
+        subTitleLabel.numberOfLines = 0
+        subTitleLabel.text = "Your premium Bank!"
         
         loginView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -82,25 +82,20 @@ extension LoginViewController {
     
     private func layout() {
         view.addSubview(titleLabel)
-        view.addSubview(subLabel)
+        view.addSubview(subTitleLabel)
         view.addSubview(loginView)
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
         
         // sets isActive to true for all contsraints contained within
-        
-        
-        
-        
-        // LoginView
         NSLayoutConstraint.activate([
-            subLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
+            subTitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             
-            loginView.topAnchor.constraint(equalToSystemSpacingBelow: subLabel.bottomAnchor, multiplier: 3),
-            subLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
-            subLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
+            loginView.topAnchor.constraint(equalToSystemSpacingBelow: subTitleLabel.bottomAnchor, multiplier: 3),
+            subTitleLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
+            subTitleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
             
             /*
                 going to appear middle of page by anchoring with centerYAnchor
