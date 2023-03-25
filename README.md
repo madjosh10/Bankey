@@ -1,11 +1,11 @@
 # Bankey
 ## What will be in the application
-- [x] Login Screen
-[] Onboarding
-[] Home Screen
-[] Summary Screen
-[] Detail Screen
-[] Contact Screen
+1. - [x] Login Screen
+2. - [] Onboarding
+3. - [] Home Screen
+4. - [] Summary Screen
+5. - [] Detail Screen
+6. - [] Contact Screen
 
 
 ### Login Screen
