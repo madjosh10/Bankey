@@ -7,7 +7,6 @@
 5. - [] Detail Screen
 6. - [] Contact Screen
 
-
 ## Login Screen
 - [x] No story boards
     * Build Programmatically

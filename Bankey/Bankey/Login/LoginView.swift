@@ -11,7 +11,6 @@ import UIKit
 class LoginView: UIView {
     
     let stackView = UIStackView()
-    
     let usernameTextField = UITextField()
     let passwordTextField = UITextField()
     let dividerView = UIView()

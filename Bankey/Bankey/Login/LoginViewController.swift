@@ -4,7 +4,6 @@
 //
 //  Created by Josh on 3/23/23.
 //
-
 import UIKit
 
 // MARK: - LoginViewController
@@ -25,14 +24,12 @@ class LoginViewController: UIViewController {
         return loginView.passwordTextField.text
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         style()
         layout()
     }
-
 
 }
 // MARK: - Style and Layout
@@ -74,8 +71,6 @@ extension LoginViewController {
         errorMessageLabel.textColor = .systemRed
         errorMessageLabel.numberOfLines = 0
         errorMessageLabel.isHidden = true
-        
-        
         
         
     }
