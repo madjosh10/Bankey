@@ -6,6 +6,16 @@
 //
 import UIKit
 
+protocol LogoutDelegate: AnyObject {
+    func didLogout()
+}
+
+// MARK: - LoginViewControllerDelegate
+protocol LoginViewControllerDelegate: AnyObject {
+    func didLogin()
+    
+}
+
 // MARK: - LoginViewController
 class LoginViewController: UIViewController {
     
@@ -15,6 +25,12 @@ class LoginViewController: UIViewController {
     let errorMessageLabel = UILabel()
     let titleLabel = UILabel()
     let subTitleLabel = UILabel()
+    
+    /*
+     To avoid the retain cycles, want to hold a weak reference
+     app delegate will have a strong ref, want to have a weak ref in this VC
+     */
+    weak var delegate: LoginViewControllerDelegate?
     
     // username and password input vars
     var username: String? {
@@ -31,6 +47,10 @@ class LoginViewController: UIViewController {
         layout()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        signInButton.configuration?.showsActivityIndicator = false
+    }
 }
 // MARK: - Style and Layout
 extension LoginViewController {
@@ -143,14 +163,15 @@ extension LoginViewController {
             return
         }
         
-        if username.isEmpty || password.isEmpty {
-            configureView(withMessage: "Username / password cannot be blank")
-            return
-        }
+//        if username.isEmpty || password.isEmpty {
+//            configureView(withMessage: "Username / password cannot be blank")
+//            return
+//        }
         
         
-        if username == "Kevin" && password == "Welcome" {
+        if username == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true
+            delegate?.didLogin()
         } else {
             configureView(withMessage: "Incorrect username / password")
         }
