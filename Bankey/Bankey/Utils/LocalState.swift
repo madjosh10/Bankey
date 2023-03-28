@@ -19,7 +19,7 @@ public class LocalState {
         // can pass in a boolean the new val, and write it to disk
         set(newValue) {
             UserDefaults.standard.set(newValue, forKey: Keys.hasOnboarded.rawValue)
-            UserDefaults.standard.synchronize()
+//            UserDefaults.standard.synchronize()
         }
     }
     
