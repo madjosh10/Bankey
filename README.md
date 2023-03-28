@@ -1,7 +1,7 @@
 # Bankey
 ## What will be in the application
 1. - [x] Login Screen
-2. - [] Onboarding
+2. - [x] Onboarding
 3. - [] Home Screen
 4. - [] Summary Screen
 5. - [] Detail Screen
@@ -32,3 +32,12 @@
     - git clone
 
 ![Login](Login.png)
+
+## Onboarding
+- [x] UIPageViewControllers
+- [x] Design Pattern
+    - Protocol Delegate
+    - Communicate up from view controllers
+- [x] User Defaults
+    - save states with user default
+    
